@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Jasuke</title>
+    <style>
+        body { font-family: Arial; background-color: #f3f4f6; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f59e0b; color: white; }
+        .total { font-size: 20px; font-weight: bold; color: #d97706; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Laporan Penjualan Hari Ini</h2>
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Ukuran</th>
+                <th>Rasa</th>
+                <th>Harga</th>
+            </tr>
+            {% for item in pesanan %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item.ukuran }}</td>
+                <td>{{ item.rasa }}</td>
+                <td>Rp {{ item.harga }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="total">Total Omzet: Rp {{ total }}</div>
+        <br>
+        <a href="/kasir" style="color: blue;">Kembali ke Kasir</a>
+    </div>
+</body>
+</html>
